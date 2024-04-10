@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import AppName from './Components/AppName';
+import AddTODO from './Components/AddTODO';
+import TodoItems from './Components/TodoItems';
+import { useState } from 'react'
 
 function App() {
+
+  const initialTodoItems = [{
+    name: 'Buy Milk',
+    dueDate: '20-01-2024',
+  },
+  {
+    name: 'Go To College',
+    dueDate: '20-01-2024',
+  },
+  ];
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <center className='todo-container'>
+        <AppName />
+        <div className='todo-items'>
+          <AddTODO />
+          <TodoItems todoItems={initialTodoItems} />
+        </div>
+      </center>
+    </>
   );
 }
 
